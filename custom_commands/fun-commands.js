@@ -72,7 +72,6 @@ function cmdRPS(request){
   var regex = /^\/rps$/i;
   
   if (regex.test(request.text)) {
-    var val = regex.exec(request.text);
     var num = Math.floor((Math.random() * 3) + 1);
     var msg = "Rock!";
     if (num == 2) {
@@ -81,9 +80,6 @@ function cmdRPS(request){
       msg = "Scissors!";
     }
     return msg;
+  } else {
+		msg = "I brokededed bzzt";
   }
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 72bdd029a2381a9a7148ec0b9e9005c3b20061bf
