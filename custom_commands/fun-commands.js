@@ -82,4 +82,8 @@ function cmdRPS(request){
     }
     return msg;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 72bdd029a2381a9a7148ec0b9e9005c3b20061bf
