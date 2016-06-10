@@ -1,4 +1,4 @@
-var cmds = [cmdFlipCoin, cmdRollDice];
+var cmds = [cmdFlipCoin, cmdRollDice, cmdRPS];
 
 exports.checkCommands = function(dataHash, callback) {
   for (cmd in cmds) {
@@ -17,7 +17,8 @@ exports.checkCommands = function(dataHash, callback) {
 exports.getCmdListDescription = function () {
   cmdArr = [
     {cmd: "/flipcoin", desc: "Returns heads or tails 50/50 chance", fun: true},
-    {cmd: "/roll #d#", desc: "Will simulate a random dice roll of # number dice and # sides. EX: /roll 2d6 will roll two six sided dice.", fun: true}
+    {cmd: "/roll #d#", desc: "Will simulate a random dice roll of # number dice and # sides. EX: /roll 2d6 will roll two six sided dice.", fun: true},
+    {cmd: "/rps", desc: "Returns rock, paper, or scissors 1/3 chance", fun: true}
   ];
 
   return cmdArr;
@@ -64,5 +65,21 @@ function cmdRollDice(request){
     return msg;
   } else {
     return false;
+  }
+}
+
+function cmdRPS(request){
+  var regex = /^\/rps$/i;
+  
+  if (regex.test(request.text)) {
+    var val = regex.exec(request.text);
+    var num = Math.floor((Math.random() * 3) + 1);
+    var msg = "Rock!";
+    if (num == 2) {
+      msg = "Paper!";
+    } else if (num == 3) {
+      msg = "Scissors!";
+    }
+    return msg;
   }
 }
